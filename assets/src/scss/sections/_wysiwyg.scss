@@ -1,0 +1,40 @@
+.wysiwyg {
+  a {
+    text-decoration: underline;
+  }
+
+  p {
+    margin-bottom: 1em;
+  }
+
+  ol,
+  ul {
+    padding-left: 1.5em;
+  }
+
+  ul {
+    li {
+      list-style: disc;
+    }
+  }
+
+  ol {
+    li {
+      list-style: decimal;
+    }
+  }
+
+  img {
+    margin-bottom: 1em;
+  }
+
+  @include for-size($tablet-portrait-up) {
+    img {
+      &.alignleft {
+        float: left;
+        margin-bottom: 0;
+        margin-right: 1em;
+      }
+    }
+  }
+}

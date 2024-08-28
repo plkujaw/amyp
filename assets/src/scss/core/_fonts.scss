@@ -1,0 +1,49 @@
+$fontsDir: '../../fonts/';
+
+@font-face {
+  font-display: swap;
+  font-family: 'Piech Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: url('#{$fontsDir}PiechSans-Book.woff2') format('woff2'),
+    url('#{$fontsDir}PiechSans-Book.woff') format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Piech Sans';
+  font-style: normal;
+  font-weight: normal;
+  src: url('#{$fontsDir}PiechSans-Regular.woff2') format('woff2'),
+    url('#{$fontsDir}PiechSans-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Piech Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('#{$fontsDir}PiechSans-Semibold.woff2') format('woff2'),
+    url('#{$fontsDir}PiechSans-Semibold.woff') format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Piech Sans';
+  font-style: normal;
+  font-weight: 900;
+  src: url('#{$fontsDir}PiechSans-Bold.woff2') format('woff2'),
+    url('#{$fontsDir}PiechSans-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'WT Scrappa Roman';
+  font-style: normal;
+  font-weight: normal;
+  src: url('#{$fontsDir}WT_Skrappa_Roman.woff2') format('woff2'),
+    url('#{$fontsDir}WT_Skrappa_Roman.woff') format('woff');
+}
+
+$brand-font-1: 'Piech Sans', sans-serif;
+$brand-font-2: 'WT Scrappa Roman', sans-serif;

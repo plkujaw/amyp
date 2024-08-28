@@ -1,0 +1,21 @@
+.btn {
+  background-color: transparent;
+  border: 1px solid $clr-secondary;
+  border-radius: 2.315rem;
+  color: $clr-secondary;
+  display: inline-block;
+  font-family: $brand-font-1;
+  padding: 0.6rem 2.6rem;
+  @extend .fs-label;
+
+  @include for-size($tablet-landscape-up) {
+    transition: all $default-transition;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $clr-secondary;
+    color: $clr-primary;
+  }
+}

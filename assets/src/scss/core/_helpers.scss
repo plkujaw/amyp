@@ -1,0 +1,112 @@
+@mixin custom-scrollbar(
+  $width: 6px,
+  $track-color: $clr-faded-black,
+  $thumb-color: $clr-secondary
+) {
+  &::-webkit-scrollbar {
+    width: $width;
+  }
+
+  &::-webkit-scrollbar-track {
+    // box-shadow: inset 0 0 5px rgba($track-color, 0.8);
+    background-color: $track-color;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $thumb-color;
+    outline: none;
+    &:hover {
+      opacity: 0.5;
+
+    }
+  }
+}
+
+@mixin circle($position: absolute, $size: 0.75rem, $translateX: -1em) {
+  background-color: $clr-secondary;
+  border-radius: 50%;
+  content: '';
+  display: inline-block;
+  height: $size;
+  position: $position;
+  transform: translateX($translateX);
+  width: $size;
+}
+
+@mixin list {
+  text-transform: uppercase;
+  h4 {
+    align-items: center;
+    display: flex;
+    // font-size: 1rem;
+    position: relative;
+    @extend .fw-bold;
+    &::before {
+      @include circle;
+    }
+  }
+}
+
+.ticker {
+  $gap: 5vw;
+  display: flex;
+  gap: $gap;
+  overflow: hidden;
+  user-select: none;
+  &__inner {
+    animation: scroll 15s linear infinite;
+    display: flex;
+    flex-shrink: 0;
+    gap: $gap;
+    justify-content: space-around;
+    min-width: 100%;
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - $gap));
+    }
+  }
+}
+
+@mixin background-image {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+$default-transition: 0.3s ease-in-out;
+
+.show-mobile {
+  display: none !important;
+  @include for-size($phone-only) {
+    display: block !important;
+  }
+}
+
+.hide-mobile {
+  display: block !important;
+  @include for-size($phone-only) {
+    display: none !important;
+  }
+}
+
+.slide-in {
+  opacity: 0;
+  transform: translateX(2rem);
+  transition: all $default-transition;
+  &.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

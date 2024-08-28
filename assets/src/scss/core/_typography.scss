@@ -1,0 +1,125 @@
+body {
+  font-family: $brand-font-1;
+  font-size: 1.125rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 300;
+  line-height: 120%;
+  text-rendering: optimizeLegibility; // aestheticallyloyal.com/public/optimize-legibility/
+  -webkit-text-size-adjust: 100%; // Prevents iOS orientation font resize bug
+}
+
+a {
+  &:hover,
+  &:focus,
+  &:active {
+    color: $clr-secondary;
+  }
+  @include for-size($tablet-landscape-up) {
+    transition: color $default-transition;
+  }
+}
+
+// h1,
+// h2,
+// h3,
+// h4 {
+//   font-weight: bold;
+// }
+
+@mixin font-stroke($width) {
+  font-family: $brand-font-2;
+  font-weight: normal;
+  -webkit-text-fill-color: transparent;
+  // -webkit-text-stroke-color: inherit;
+  -webkit-text-stroke-width: $width;
+}
+@mixin remove-font-stroke {
+  -webkit-text-fill-color: currentColor !important;
+  // -webkit-text-stroke-color: initial;
+  -webkit-text-stroke-width: 0;
+}
+
+.fs-massive {
+  font-size: clamp(10.625rem, 1.162rem + 40.3756vw, 37.5rem);
+  letter-spacing: 0.01875em;
+  font-family: $brand-font-2;
+  line-height: 100%;
+  @include font-stroke(0.002em)
+ 
+}
+
+.fs-hero {
+  font-size: clamp(7.75rem, 4.1286rem + 14.8571vw, 17.5rem);
+  letter-spacing: 0.015em;
+  line-height: 80%;
+}
+
+.fs-h1 {
+  font-size: clamp(5rem, 2.9107rem + 8.5714vw, 10.625rem);
+  letter-spacing: 0.03em;
+  line-height: 80%;
+  @include for-size($tablet-landscape-up) {
+    letter-spacing: 0.015em;
+  }
+}
+
+.fs-p {
+  font-size: clamp(1.125rem, 0.9489rem + 0.7512vw, 1.625rem);
+  line-height: 120%;
+  &--small {
+    font-size: 1rem;
+  }
+}
+
+.fs-body-large {
+  font-size: 1.375rem;
+  line-height: 120%;
+}
+
+.fs-label {
+  font-family: $brand-font-1;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  @extend .fw-bold;
+}
+
+.fs-header-article {
+  font-family: $brand-font-2;
+  font-size: clamp(5rem, 4.1197rem + 3.7559vw, 7.5rem);
+  letter-spacing: 0.03em;
+  line-height: 80%;
+  @include for-size($tablet-landscape-up) {
+    letter-spacing: 0.015em;
+  }
+}
+
+.fs-numbers {
+  font-family: $brand-font-2;
+  font-size: 3.25rem;
+  letter-spacing: 0.08em;
+  line-height: 82.2%;
+  &--small {
+    font-size: 1.75rem;
+  }
+  &--xsmall {
+    font-size: 1.125rem;
+    line-height: initial;
+  }
+}
+
+.fw-semibold {
+  font-weight: 700;
+}
+
+.fw-bold,
+strong {
+  font-weight: 900;
+}
+
+
+.f-stroke {
+  @include font-stroke(0.01em);
+}
+

@@ -1,0 +1,102 @@
+.portfolio {
+  &__inner {
+    display: grid;
+    grid-gap: 4.375rem;
+    padding: 4rem 0;
+    @include for-size($tablet-portrait-up) {
+      grid-gap: 5rem 1.25rem;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include for-size($tablet-landscape-up) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .project-card {
+    &__image {
+      align-items: center;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      // cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-bottom: clamp(1.125rem, 1.037rem + 0.3756vw, 1.375rem);
+      min-height: 12rem;
+      padding: 0.8rem;
+      position: relative;
+      @include for-size($tablet-portrait-up) {
+        min-height: 16.25rem;
+      }
+      img {
+        opacity: 1;
+        transition: opacity $default-transition;
+      }
+      &.overlay {
+        &:hover,
+        &:active {
+          img {
+            opacity: 0;
+          }
+          .project-card__overlay {
+            opacity: 1;
+            .background {
+              opacity: 0.6;
+            }
+          }
+        }
+      }
+    }
+
+    &__overlay {
+      height: 100%;
+      left: 0;
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      transition: all $default-transition;
+      width: 100%;
+      .background {
+        background-color: $clr-secondary;
+        height: 100%;
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        transition: opacity $default-transition;
+        width: 100%;
+      }
+      .text {
+        color: $clr-white;
+        font-weight: normal;
+        padding: 0.8rem;
+        position: relative;
+        h3 {
+          font-family: $brand-font-2;
+        }
+      }
+    }
+
+    &__title {
+      color: $clr-secondary;
+      display: flex;
+      justify-content: space-between;
+      line-height: 80%;
+      margin-bottom: 1rem;
+
+      h3 {
+        font-weight: normal;
+        text-transform: uppercase;
+      }
+    }
+
+    &__excerpt {
+      width: 90%;
+      @include for-size($tablet-portrait-up) {
+        width: 80%;
+      }
+    }
+  }
+}

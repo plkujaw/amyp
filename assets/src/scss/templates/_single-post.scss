@@ -1,0 +1,141 @@
+.single-post {
+  &__intro {
+    margin-top: 8rem;
+    .intro-meta {
+      h4 {
+        color: $clr-secondary;
+        margin-bottom: 1rem;
+      }
+
+      a {
+        &:hover {
+          color: $clr-faded-black;
+        }
+      }
+    }
+
+    .intro-title {
+      margin-bottom: 7.125rem;
+      margin-top: 4rem;
+    }
+
+    .entry-date {
+      @extend .fs-numbers, .fs-numbers--small;
+    }
+  }
+
+  .post-share {
+    margin-bottom: 1.563rem;
+    ul {
+      display: flex;
+      gap: 0.45rem;
+      li {
+        background-color: transparent;
+        border-radius: 50%;
+        transition: all $default-transition;
+        svg {
+          path {
+            fill: $clr-secondary;
+            transition: all $default-transition;
+          }
+        }
+        &:hover,
+        &.copied {
+          background-color: $clr-secondary;
+          svg {
+            path {
+              fill: $clr-primary;
+            }
+          }
+        }
+        &.copied {
+          a#share-copy {
+            &::after {
+              opacity: 1;
+            }
+          }
+        }
+
+        a#share-copy {
+          display: block;
+          position: relative;
+          &::after {
+            color: $clr-secondary;
+            content: 'link copied';
+            display: block;
+            left: 120%;
+            opacity: 0;
+            pointer-events: none;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: opacity $default-transition;
+            width: max-content;
+            @extend .fs-label;
+          }
+        }
+      }
+    }
+  }
+
+  &__related-posts {
+    margin: 7rem 0 5rem;
+    h3 {
+      color: $clr-secondary;
+      padding-bottom: 2em;
+    }
+
+    .related-posts__container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5.625rem;
+    }
+  }
+
+  &__banner {
+    margin-bottom: clamp(3.75rem, 2.4296rem + 5.6338vw, 7.5rem);
+    margin-top: 1.563rem;
+  }
+
+  @include for-size($tablet-portrait-up) {
+    &__intro {
+      display: flex;
+      .intro-meta {
+        width: 35%;
+      }
+      .intro-title {
+        margin-top: 0;
+        width: 65%;
+      }
+    }
+  }
+
+  @include for-size($tablet-landscape-up) {
+    .post-share {
+      margin-bottom: 0;
+    }
+
+    &__content {
+      margin-left: auto;
+      // margin-top: -40px;
+      width: 65%;
+      article {
+        max-width: 40.625rem;
+      }
+    }
+    &__related-posts {
+      margin: 5rem 0;
+      margin-left: auto;
+      width: 65%;
+      // h3 {
+      // margin-left: auto;
+      // width: 65%;
+      // }
+      .related-posts__container {
+        flex-wrap: nowrap;
+        gap: 1.25rem;
+        max-width: 40.625rem;
+      }
+    }
+  }
+}

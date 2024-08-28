@@ -1,0 +1,17 @@
+.error404 {
+  .section-columns {
+    padding: 8rem 0 4rem;
+    &__title {
+      color: $clr-secondary;
+    }
+
+    @include for-size($desktop-up) {
+      padding: 8rem 0;
+    }
+  }
+
+  &__text {
+    font-family: $brand-font-2;
+    padding-bottom: 10rem;
+  }
+}

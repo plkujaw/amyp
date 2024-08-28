@@ -1,0 +1,8 @@
+.page-title {
+  padding-top: 7.5rem;
+  border-bottom: 1px solid $clr-faded-black;
+  h1 {
+    @include font-stroke(0.01em);
+    text-transform: uppercase;
+  }
+}

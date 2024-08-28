@@ -1,0 +1,189 @@
+.archive,
+.blog {
+  .content {
+    &__inner {
+      display: grid;
+      grid-gap: 5.625rem;
+      padding: 4rem 0;
+      @include for-size($tablet-portrait-up) {
+        grid-gap: 5rem 1.25rem;
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @include for-size($tablet-landscape-up) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      @include for-size($desktop-up) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    &__pagination {
+      border-top: 1px solid $clr-faded-black;
+      span {
+        display: inline-block;
+        line-height: 100%;
+      }
+      .pagination-inner {
+        display: flex;
+        font-family: $brand-font-2;
+        justify-content: space-between;
+        margin: 2rem 0 5rem;
+        position: relative;
+        @extend .fs-h1;
+        .page-inactive,
+        .total-pages,
+        .page-separator {
+          @include font-stroke(0.01em);
+        }
+        .page-inactive,
+        .page-separator {
+          opacity: 0.5;
+          pointer-events: none;
+          // position: relative;
+        }
+      }
+
+      .next-posts,
+      .prev-posts {
+        .swiper-button {
+          bottom: -3.5rem;
+          position: absolute;
+        }
+      }
+
+      .next-posts {
+        .swiper-button-next {
+          right: 0;
+        }
+        &:hover {
+          .swiper-button-next {
+            &::after {
+              transform: translateX(0.25rem);
+            }
+          }
+        }
+      }
+
+      .prev-posts {
+        .swiper-button-prev {
+          left: 0;
+        }
+        &:hover {
+          .swiper-button-prev {
+            &::after {
+              transform: rotate(180deg) translateX(0.25rem);
+            }
+          }
+        }
+      }
+
+      @include for-size($tablet-portrait-up) {
+        .pagination-inner {
+          margin: 2rem 0 1rem;
+          position: initial;
+        }
+        .page-inactive {
+          position: relative;
+        }
+        .next-posts,
+        .prev-posts {
+          a {
+            position: relative;
+          }
+          .swiper-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-60%);
+          }
+        }
+
+        .next-posts {
+          .swiper-button-next {
+            right: -0.23em;
+          }
+        }
+
+        .prev-posts {
+          .swiper-button-prev {
+            left: -0.33em;
+          }
+        }
+      }
+    }
+
+    &.has-sticky-posts {
+      .content__inner {
+        @include for-size($tablet-landscape-up) {
+          .post {
+            &.post-sticky:first-child {
+              grid-column: 1/3;
+              grid-row: 1/3;
+              .post-card {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                &__image {
+                  flex: 1;
+                  img,
+                  a {
+                    display: block;
+                    height: 100%;
+                  }
+                }
+                &__title {
+                  font-family: $brand-font-2;
+                  font-size: 3.75rem;
+                  line-height: 90%;
+                  padding-top: 1rem;
+                }
+                .sticky-read {
+                  display: inline-block;
+                  margin-top: 1.563rem;
+                }
+              }
+            }
+            &:nth-child(3) {
+              margin-bottom: 20rem;
+            }
+          }
+        }
+
+        @include for-size($desktop-up) {
+          .post {
+            &:nth-child(3) {
+              margin-bottom: 0;
+            }
+            &:nth-child(5) {
+              margin-bottom: 20rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.paged {
+    .content {
+      &__inner {
+        @include for-size($tablet-landscape-up) {
+          .post {
+            &.post-sticky:first-child {
+              grid-column: initial;
+              grid-row: initial;
+              .post-card {
+                display: initial;
+                &__title {
+                  font: inherit;
+                  padding-top: 1em;
+                }
+                .sticky-read {
+                  display: none;
+                }
+              }
+            }
+            margin-bottom: 0 !important;
+          }
+        }
+      }
+    }
+  }
+}

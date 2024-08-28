@@ -1,0 +1,50 @@
+{
+    "key": "group_64c0d2f850640",
+    "title": "Sticky Post Thumbnail",
+    "fields": [
+        {
+            "key": "field_64c0d0cd6b3ea",
+            "label": "Sticky Post Thumbnail",
+            "name": "sticky_post_thumbnail",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Portrait-oriented sticky post thumbnail.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1690358566
+}

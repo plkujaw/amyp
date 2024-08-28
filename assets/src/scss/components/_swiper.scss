@@ -1,0 +1,60 @@
+.swiper-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.swiper-button {
+  background-color: $clr-secondary;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 2.75rem;
+  opacity: 1;
+  padding: 0.7rem;
+  position: relative;
+  transition: opacity $default-transition;
+  width: 2.75rem;
+  @include for-size($tablet-landscape-up) {
+    height: 4.75rem;
+    padding: 1.3rem;
+    width: 4.75rem;
+  }
+
+  &-prev,
+  &-next {
+    &::after {
+      background-image: url('../../img/icon-arrow-right.svg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      content: '';
+      display: block;
+      height: 100%;
+      transition: transform $default-transition;
+      width: 100%;
+    }
+  }
+
+  &-prev {
+    &::after {
+      transform: rotate(180deg);
+    }
+
+    &:hover {
+      &::after {
+        transform: rotate(180deg) translateX(0.25rem);
+      }
+    }
+  }
+
+  &-next {
+    &:hover {
+      &::after {
+        transform: translateX(0.25rem);
+      }
+    }
+  }
+
+  &-disabled {
+    opacity: 0.5;
+  }
+}

@@ -1,0 +1,98 @@
+.contact {
+  &__inner {
+    @include for-size($tablet-portrait-up) {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__main-text {
+    color: $clr-white;
+    // display: flex;
+    font-family: $brand-font-2;
+    // align-items: center;
+    margin: 0 -5%;
+    // min-height: calc(100vh - $header-height);
+    padding: clamp(2.8125rem, 1.9762rem + 3.5681vw, 5.1875rem) 0;
+    position: relative;
+
+    p {
+      margin: 0 auto;
+      position: relative;
+      width: fit-content;
+      &::before {
+        @include circle($size: 0.145em, $translateX: 0);
+      }
+
+      &::before {
+        top: -0.044em;
+        transform: translateX(-0.16em);
+      }
+
+      span {
+        display: block;
+        width: fit-content;
+        &:last-child {
+          &::after {
+            @include circle(
+              $position: relative,
+              $size: 0.145em,
+              $translateX: 0
+            );
+          }
+        }
+      }
+    }
+
+    @include for-size($tablet-portrait-up) {
+      margin: 0 5% 0 -5%;
+      width: 50%;
+    }
+  }
+
+  &__main-bg {
+    @include background-image;
+    @include for-size($site-width) {
+      left: auto;
+      right: 0;
+      width: 50vw;
+    }
+  }
+
+  &__info {
+    padding: 4rem 0;
+    h1 {
+      margin-bottom: 0.5em;
+    }
+    @include for-size($tablet-portrait-up) {
+      padding-left: 2rem;
+      padding-top: 4rem;
+      width: 50%;
+      > p {
+        padding-right: 12.5%;
+      }
+    }
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    margin-top: 4rem;
+    padding-left: 1em;
+    .details-address,
+    .details-email {
+      @include list;
+      // margin-bottom: 4rem;
+    }
+    @include for-size($tablet-portrait-up) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding-left: 0;
+      .details-address,
+      .details-email {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
